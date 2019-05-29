@@ -1,0 +1,12 @@
+version: 1.0
+provider:
+  name: openfaas
+  gateway: http://docker-1.dmz.dynam.ac:8080
+functions:
+  bamboo-pr-trigger:
+    lang: node8-express
+    handler: ./bamboo-pr-trigger
+    image: docker-1.dmz.dynam.ac:5000/faas/bamboo-pr-trigger:latest
+    secrets:
+     - bamboo-username
+     - bamboo-password
